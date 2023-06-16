@@ -4,7 +4,7 @@ use super::{locked_read, locked_write};
 use crate::loader::libloading::Libloading;
 use crate::loader::Loader;
 
-#[cfg(target_os = "linux")]
+#[cfg(all(unix, not(target_os = "macos")))]
 const DYLIB_EXTENSION: &str = "so";
 #[cfg(target_os = "macos")]
 const DYLIB_EXTENSION: &str = "dylib";
